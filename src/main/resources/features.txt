@@ -1,0 +1,7 @@
+externalized properties file
+jenkins automate build
+auth - jwt security - register, log-in, log-out
+testing JUnit Mockito
+profiles - dev, test, uat, prod
+docker
+kubernetes
