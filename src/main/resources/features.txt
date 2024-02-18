@@ -1,7 +1,13 @@
-externalized properties file
+done:
+externalized properties file - ok. can be done using spring.config.import=file:C:/Users/robert.dela.cruz/laptop-files/dev/application.properties
+profiles - dev, test, uat, prod - done. can be done using application properties file. Just change the database connection accordingly and change also other properties
+springdoc entity-controllers: done using openapi springdoc dependencies and enabling @RepositoryRestResource in Repository classes (refer to pom)
+banner - can be done by introducing a banner.txt in resources directory
+
+not done:
 jenkins automate build
 auth - jwt security - register, log-in, log-out
 testing JUnit Mockito
-profiles - dev, test, uat, prod
 docker
 kubernetes
+enable database auditing
