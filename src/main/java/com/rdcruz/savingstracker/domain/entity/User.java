@@ -21,8 +21,8 @@ import java.util.Set;
 public class User {
     @Id
 //    @UuidGenerator(style = UuidGenerator.Style.AUTO)
-    @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    @GeneratedValue(generator = "system-uuid")
     @Column(name = "user_id", length = 36)
     private String userId;
     @Column(name = "first_name")
