@@ -59,13 +59,13 @@ public class TransactionController {
     }
 
     @PostMapping("/createTransaction")
-    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction){
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
         return ResponseEntity.ok(transactionServiceImpl.createTransaction(transaction));
     }
 
     @PatchMapping("/updateTransaction")
-    public ResponseEntity<Transaction> updateTransaction(@RequestBody Transaction transaction, @RequestParam String id){
-        return ResponseEntity.ok(transactionServiceImpl.updateTransaction(transaction,id));
+    public ResponseEntity<Transaction> updateTransaction(@RequestBody Transaction transaction, @RequestParam String id) {
+        return ResponseEntity.ok(transactionServiceImpl.updateTransaction(transaction, id));
     }
 
 //    @GetMapping("/testMp3")

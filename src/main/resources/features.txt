@@ -4,11 +4,14 @@ profiles - dev, test, uat, prod - done. can be done using application properties
 springdoc entity-controllers: done using openapi springdoc dependencies and enabling @RepositoryRestResource in Repository classes (refer to pom)
 banner - can be done by introducing a banner.txt in resources directory
 enable properties filtering - <filtering>true</filtering> add this to your pom resources to resolve properties from pom file
+JUnit = providing @Test methods in the Test classes
 
 not done:
+JaxB
+testing JUnit Mockito
 jenkins automate build
 auth - jwt security - register, log-in, log-out
-testing JUnit Mockito
 docker
 kubernetes
 enable database auditing
+jasperReports

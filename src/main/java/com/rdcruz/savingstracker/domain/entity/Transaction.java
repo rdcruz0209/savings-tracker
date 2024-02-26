@@ -22,8 +22,8 @@ public class Transaction {
 
     @Id
     @Column(name = "id", unique = true, nullable = false, updatable = false, length = 36)
+    @GenericGenerator(name = "uuid.generator.name", strategy = "uuid.generator.strategy")
     @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
 
     @Column(name = "amount")
