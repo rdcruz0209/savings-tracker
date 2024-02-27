@@ -16,8 +16,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @XmlRootElement(name = "transaction")
-@XmlType(propOrder = {"userId","firstName","lastName","userName"})
-public class UserXmlDto implements Serializable {
+@XmlType(propOrder = {"userId", "firstName", "lastName", "userName"})
+public class UserXmlDto {
     String userId;
     String firstName;
     String lastName;

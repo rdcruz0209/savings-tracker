@@ -21,14 +21,19 @@ public class XmlServiceImpl implements XmlService {
 
     @Override
     public String createXml(Transaction transaction) throws JAXBException {
-        TransactionXmlDto transactionXmlDto = transactionEntityXmlMapper(transaction);
-        JAXBContext jaxbContext = JAXBContext.newInstance(TransactionXmlDto.class);
-        Marshaller mar = jaxbContext.createMarshaller();
-        mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        StringWriter stringWriter = new StringWriter();
-        mar.marshal(transactionXmlDto, stringWriter);
-        log.info("transactionXmlDto details: id:{}", transactionXmlDto.getUser());
-        return stringWriter.toString();
+        try {
+            TransactionXmlDto transactionXmlDto = transactionEntityXmlMapper(transaction);
+            JAXBContext jaxbContext = JAXBContext.newInstance(TransactionXmlDto.class);
+            Marshaller mar = jaxbContext.createMarshaller();
+            mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            StringWriter stringWriter = new StringWriter();
+            mar.marshal(transactionXmlDto, stringWriter);
+            log.info("transactionXmlDto details: id:{}", transactionXmlDto.getUser());
+            return stringWriter.toString();
+        } catch (JAXBException e) {
+            log.error("Error occurred while marshalling TransactionXmlDto", e);
+            throw new JAXBException("Error has occurred with cause" + e.getCause());
+        }
     }
 
     private TransactionXmlDto transactionEntityXmlMapper(Transaction transaction) {
@@ -42,6 +47,7 @@ public class XmlServiceImpl implements XmlService {
                                 .description(transaction.getDescription())
                                 .build();
     }
+
     private UserXmlDto userEntityXmlMapper(User user) {
         return UserXmlDto.builder()
                          .userId(user.getUserId())

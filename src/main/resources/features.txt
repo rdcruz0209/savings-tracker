@@ -5,9 +5,10 @@ springdoc entity-controllers: done using openapi springdoc dependencies and enab
 banner - can be done by introducing a banner.txt in resources directory
 enable properties filtering - <filtering>true</filtering> add this to your pom resources to resolve properties from pom file
 JUnit = providing @Test methods in the Test classes
+JaxB = see pom for JaxB dependencies. This uses JaxBContext to marshal or unmarshal java objects and xml
 
 not done:
-JaxB
+
 Mapper
 Projections - https://www.baeldung.com/spring-data-jpa-projections#interface-based-projections
 testing JUnit Mockito
