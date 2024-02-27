@@ -1,7 +1,9 @@
 package com.rdcruz.savingstracker.service.impl;
 
 import com.rdcruz.savingstracker.domain.dto.TransactionXmlDto;
+import com.rdcruz.savingstracker.domain.dto.UserXmlDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
+import com.rdcruz.savingstracker.domain.entity.User;
 import com.rdcruz.savingstracker.service.XmlService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +36,19 @@ public class XmlServiceImpl implements XmlService {
                                 .id(transaction.getId())
                                 .amount(transaction.getAmount())
                                 .type(transaction.getType())
-                                .user(transaction.getUser())
+                                .user(userEntityXmlMapper(transaction.getUser()))
                                 .transactionCategory(transaction.getTransactionCategory())
                                 .transactionDate(transaction.getTransactionDate())
                                 .description(transaction.getDescription())
                                 .build();
+    }
+    private UserXmlDto userEntityXmlMapper(User user) {
+        return UserXmlDto.builder()
+                         .userId(user.getUserId())
+                         .firstName(user.getFirstName())
+                         .lastName(user.getLastName())
+                         .userName(user.getUserName())
+                         .build();
+
     }
 }

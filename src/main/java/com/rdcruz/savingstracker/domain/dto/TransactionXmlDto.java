@@ -24,5 +24,5 @@ public class TransactionXmlDto {
     private String description;
     private LocalDateTime transactionDate;
     private TransactionCategoryEnum transactionCategory;
-    private User user;
+    private UserXmlDto user;
 }
