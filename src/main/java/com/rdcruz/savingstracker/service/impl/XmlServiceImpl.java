@@ -27,7 +27,7 @@ public class XmlServiceImpl implements XmlService {
         mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         StringWriter stringWriter = new StringWriter();
         mar.marshal(transactionXmlDto, stringWriter);
-        log.info("transactionXmlDto details: id:{}, date:{}", transactionXmlDto.getUser(), transactionXmlDto.getTransactionDate());
+        log.info("transactionXmlDto details: id:{}", transactionXmlDto.getUser());
         return stringWriter.toString();
     }
 
@@ -38,7 +38,7 @@ public class XmlServiceImpl implements XmlService {
                                 .type(transaction.getType())
                                 .user(userEntityXmlMapper(transaction.getUser()))
                                 .transactionCategory(transaction.getTransactionCategory())
-                                .transactionDate(transaction.getTransactionDate())
+//                                .transactionDate(transaction.getTransactionDate())
                                 .description(transaction.getDescription())
                                 .build();
     }

@@ -16,13 +16,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @XmlRootElement(name = "transaction")
-@XmlType (propOrder = {"id","amount","type","description","transactionDate","transactionCategory","user"})
+@XmlType (propOrder = {"id","amount","type","description","transactionCategory","user"})
+//@XmlType (propOrder = {"id","amount","type","description","transactionDate","transactionCategory","user"})
 public class TransactionXmlDto {
     private String id;
     private BigDecimal amount;
     private TypeEnum type;
     private String description;
-    private LocalDateTime transactionDate;
+//    private LocalDateTime transactionDate;
     private TransactionCategoryEnum transactionCategory;
     private UserXmlDto user;
 }
