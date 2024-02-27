@@ -1,5 +1,6 @@
 package com.rdcruz.savingstracker.domain.repository;
 
+import com.rdcruz.savingstracker.domain.dto.TransactionDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
 import com.rdcruz.savingstracker.domain.enums.TypeEnum;
 import org.springframework.data.jpa.repository.JpaRepository;

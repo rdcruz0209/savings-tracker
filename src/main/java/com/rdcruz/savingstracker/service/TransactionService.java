@@ -2,6 +2,7 @@ package com.rdcruz.savingstracker.service;
 
 import com.rdcruz.savingstracker.domain.entity.Transaction;
 import com.rdcruz.savingstracker.domain.enums.TypeEnum;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

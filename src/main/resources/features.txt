@@ -8,6 +8,8 @@ JUnit = providing @Test methods in the Test classes
 
 not done:
 JaxB
+Mapper
+Projections - https://www.baeldung.com/spring-data-jpa-projections#interface-based-projections
 testing JUnit Mockito
 jenkins automate build
 auth - jwt security - register, log-in, log-out

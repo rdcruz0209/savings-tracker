@@ -1,17 +1,24 @@
 package com.rdcruz.savingstracker.controller;
 
+import com.rdcruz.savingstracker.domain.dto.TransactionXmlDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
 import com.rdcruz.savingstracker.domain.enums.TypeEnum;
 import com.rdcruz.savingstracker.service.TransactionService;
+import com.rdcruz.savingstracker.service.XmlService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.JAXBException;
 import java.util.List;
 import java.util.Objects;
+import java.util.jar.JarException;
 
 
 @RestController
@@ -21,6 +28,7 @@ import java.util.Objects;
 public class TransactionController {
 
     private final TransactionService transactionServiceImpl;
+    private final XmlService xmlServiceImpl;
 
     @Operation(description = "Find all Transaction")
     @GetMapping("/")
@@ -41,6 +49,28 @@ public class TransactionController {
                                  .build();
         } else {
             return new ResponseEntity<>(transactionServiceImpl.findById(id), HttpStatus.OK);
+        }
+    }
+
+
+    @Operation(summary = "Create XML representation of transaction by ID",
+            description = "Creates an XML representation of a transaction by its ID.")
+    @GetMapping(value = "/createTransactionXmlById")
+//    @GetMapping(value = "/createTransactionXmlById", produces = "application/xml")
+//    @ApiResponse(responseCode = "200", description = "Successful operation",
+//            content = @Content(mediaType = "application/xml",
+//                    schema = @Schema(implementation = TransactionXmlDto.class)))
+    public ResponseEntity<String> createTransactionXmlById(@RequestParam String id) throws JAXBException {
+        try {
+            if (Objects.isNull(transactionServiceImpl.findById(id))) {
+                return ResponseEntity.notFound()
+                                     .build();
+            } else {
+                return new ResponseEntity<>(xmlServiceImpl.createXml(transactionServiceImpl.findById(id)), HttpStatus.OK);
+            }
+        }
+        catch (JAXBException je){
+            throw new JAXBException(je);
         }
     }
 

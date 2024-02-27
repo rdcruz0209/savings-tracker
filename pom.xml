@@ -17,6 +17,7 @@
         <java.version>17</java.version>
 
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,12 +47,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-devtools</artifactId>-->
+        <!--            <scope>runtime</scope>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
@@ -88,12 +89,13 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+
         <!--		<dependency>-->
-<!--			<groupId>com.mpatric</groupId>-->
-<!--			<artifactId>mp3agic</artifactId>-->
-<!--			<version>0.9.1</version>-->
-<!--		</dependency>-->
-		<!--		<dependency>-->
+        <!--			<groupId>com.mpatric</groupId>-->
+        <!--			<artifactId>mp3agic</artifactId>-->
+        <!--			<version>0.9.1</version>-->
+        <!--		</dependency>-->
+        <!--		<dependency>-->
         <!--			<groupId>org.springdoc</groupId>-->
         <!--			<artifactId>springdoc-openapi-ui</artifactId>-->
         <!--			<version>1.7.0</version>-->
@@ -112,6 +114,20 @@
         <!--			<artifactId>spring-data-rest-core</artifactId>-->
         <!--			<version>3.7.18</version>-->
         <!--		</dependency>-->
+
+        <!-- JAXB API -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version> <!-- or the latest version -->
+        </dependency>
+
+        <!-- JAXB Runtime (included in JDK 8 and earlier, but separate for JDK 9+) -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.3</version>
+        </dependency>
     </dependencies>
 
     <repositories>
