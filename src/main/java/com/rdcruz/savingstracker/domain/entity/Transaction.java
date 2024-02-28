@@ -1,5 +1,6 @@
 package com.rdcruz.savingstracker.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rdcruz.savingstracker.domain.enums.TransactionCategoryEnum;
 import com.rdcruz.savingstracker.domain.enums.TypeEnum;
 import jakarta.persistence.*;
@@ -47,5 +48,6 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "user_id", updatable = true)
+    @JsonIgnore
     private User user;
 }

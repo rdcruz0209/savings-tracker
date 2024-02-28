@@ -1,8 +1,8 @@
 package com.rdcruz.savingstracker.domain.repository;
 
-import com.rdcruz.savingstracker.domain.dto.TransactionDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
 import com.rdcruz.savingstracker.domain.enums.TypeEnum;
+import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -16,7 +16,8 @@ public interface TransactionRepository extends JpaRepository<Transaction, String
     Transaction getCreditsByDescription(String description);
 
     @Query("select t from Transaction t")
-    List<Transaction> findAllTransaction();
+    @NonNull
+    List<Transaction> findAll();
 
     List<Transaction> findAllTransactionByType(TypeEnum type);
 
