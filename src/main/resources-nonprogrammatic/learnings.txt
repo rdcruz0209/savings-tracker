@@ -1,0 +1,5 @@
+An API is a way to obtain/doing/requesting something without needing to know how it works in the background.
+
+Just like a remote to turn on a TV
+Just like a waiter to order food
+Just like car controls
