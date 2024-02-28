@@ -43,7 +43,7 @@ public class XmlServiceImpl implements XmlService {
                                 .type(transaction.getType())
                                 .user(userEntityXmlMapper(transaction.getUser()))
                                 .transactionCategory(transaction.getTransactionCategory())
-//                                .transactionDate(transaction.getTransactionDate())
+                                .transactionDate(transaction.getTransactionDate())
                                 .description(transaction.getDescription())
                                 .build();
     }
