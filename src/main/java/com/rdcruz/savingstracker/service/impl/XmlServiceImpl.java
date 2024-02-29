@@ -5,6 +5,7 @@ import com.rdcruz.savingstracker.domain.dto.UserXmlDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
 import com.rdcruz.savingstracker.domain.entity.User;
 import com.rdcruz.savingstracker.service.XmlService;
+import com.rdcruz.savingstracker.service.mapper.TransactionXmlDTOMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,17 +13,22 @@ import org.springframework.stereotype.Service;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.stream.XMLStreamWriter;
 import java.io.StringWriter;
 
 @Service
 @Slf4j
 public class XmlServiceImpl implements XmlService {
 
+    private final TransactionXmlDTOMapper transactionXmlDTOMapper;
+
+    public XmlServiceImpl(TransactionXmlDTOMapper transactionXmlDTOMapper) {
+        this.transactionXmlDTOMapper = transactionXmlDTOMapper;
+    }
+
     @Override
     public String createXml(Transaction transaction) throws JAXBException {
         try {
-            TransactionXmlDto transactionXmlDto = transactionEntityXmlMapper(transaction);
+            TransactionXmlDto transactionXmlDto = transactionXmlDTOMapper.map(transaction);
             JAXBContext jaxbContext = JAXBContext.newInstance(TransactionXmlDto.class);
             Marshaller mar = jaxbContext.createMarshaller();
             mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -36,25 +42,4 @@ public class XmlServiceImpl implements XmlService {
         }
     }
 
-    private TransactionXmlDto transactionEntityXmlMapper(Transaction transaction) {
-        return TransactionXmlDto.builder()
-                                .id(transaction.getId())
-                                .amount(transaction.getAmount())
-                                .type(transaction.getType())
-                                .user(userEntityXmlMapper(transaction.getUser()))
-                                .transactionCategory(transaction.getTransactionCategory())
-                                .transactionDate(transaction.getTransactionDate())
-                                .description(transaction.getDescription())
-                                .build();
-    }
-
-    private UserXmlDto userEntityXmlMapper(User user) {
-        return UserXmlDto.builder()
-                         .userId(user.getUserId())
-                         .firstName(user.getFirstName())
-                         .lastName(user.getLastName())
-                         .userName(user.getUserName())
-                         .build();
-
-    }
 }
