@@ -1,13 +1,10 @@
 package com.rdcruz.savingstracker.service.impl;
 
-import com.rdcruz.savingstracker.domain.dto.TransactionXmlDto;
-import com.rdcruz.savingstracker.domain.dto.UserXmlDto;
+import com.rdcruz.savingstracker.controller.dto.TransactionXmlDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
-import com.rdcruz.savingstracker.domain.entity.User;
 import com.rdcruz.savingstracker.service.XmlService;
 import com.rdcruz.savingstracker.service.mapper.TransactionXmlDTOMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBContext;

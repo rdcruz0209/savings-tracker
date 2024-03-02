@@ -1,4 +1,4 @@
-package com.rdcruz.savingstracker.domain.dto;
+package com.rdcruz.savingstracker.controller.dto;
 
 import com.rdcruz.savingstracker.domain.entity.User;
 import lombok.*;

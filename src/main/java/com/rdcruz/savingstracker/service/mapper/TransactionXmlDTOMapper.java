@@ -1,13 +1,13 @@
 package com.rdcruz.savingstracker.service.mapper;
 
-import com.rdcruz.savingstracker.domain.dto.TransactionXmlDto;
+import com.rdcruz.savingstracker.controller.dto.TransactionXmlDto;
 import com.rdcruz.savingstracker.domain.entity.Transaction;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Function;
 
 @Service
-public class TransactionXmlDTOMapper  implements Function<Transaction, TransactionXmlDto> {
+public class TransactionXmlDTOMapper implements Function<Transaction, TransactionXmlDto> {
 
     private final UserXmlDTOMapper userXmlDTOMapper;
 

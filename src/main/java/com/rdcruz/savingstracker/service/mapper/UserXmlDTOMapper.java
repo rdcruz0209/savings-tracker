@@ -1,8 +1,6 @@
 package com.rdcruz.savingstracker.service.mapper;
 
-import com.rdcruz.savingstracker.domain.dto.TransactionXmlDto;
-import com.rdcruz.savingstracker.domain.dto.UserXmlDto;
-import com.rdcruz.savingstracker.domain.entity.Transaction;
+import com.rdcruz.savingstracker.controller.dto.UserXmlDto;
 import com.rdcruz.savingstracker.domain.entity.User;
 import org.springframework.stereotype.Service;
 
